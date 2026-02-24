@@ -1,0 +1,5 @@
+pytest == 9.0.2
+allure-pytest
+selene == 2.0.0rc5
+selenium == 4.40.0
+webdriver-manager
