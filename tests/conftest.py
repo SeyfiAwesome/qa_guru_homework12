@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.options import Options
 from selene import browser
 from selene.support.shared import config
 
+from utils import attaches
+
 
 @pytest.fixture(autouse=True)
 def browser_management():
@@ -20,5 +22,9 @@ def browser_management():
     browser.config.timeout = 10
 
     yield
+
+    attaches.add_screenshot(driver)
+    attaches.add_html(driver)
+    attaches.add_logs(driver)
 
     browser.quit()
