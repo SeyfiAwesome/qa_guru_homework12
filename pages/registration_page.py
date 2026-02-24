@@ -2,6 +2,7 @@ from selene.support.shared import browser
 from selene import have, command
 from pathlib import Path
 from tests.data.users import User
+import allure
 
 import tests
 
@@ -15,18 +16,23 @@ class RegistrationPage:
     def __init__(self):
         pass
 
+    @allure.step('Open url')
     def open(self):
         browser.open('https://demoqa.com/automation-practice-form')
 
+    @allure.step('Fill first name with {first_name}')
     def fill_first_name(self, first_name):
         browser.element('#firstName').type(first_name)
 
+    @allure.step('Fill last name with {last_name}')
     def fill_last_name(self, last_name):
         browser.element('#lastName').type(last_name)
 
+    @allure.step('Fill email with {user_email}')
     def fill_email(self, user_email):
         browser.element('#userEmail').type(user_email)
 
+    @allure.step('Select gender')
     def select_gender(self, gender):
         valid_genders = ['Male', 'Female', 'Other']
         if gender not in valid_genders:
