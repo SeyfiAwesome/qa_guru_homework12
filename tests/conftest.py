@@ -24,7 +24,7 @@ def browser_management():
     yield
 
     attaches.add_screenshot(driver)
-    attaches.add_html(driver)
+    attaches.add_page_source(driver)
     attaches.add_logs(driver)
 
     browser.quit()
